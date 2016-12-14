@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @list.nombre %>
+  <br/>
+  <strong>Fecha de creacion:</strong>
+  <%= @list.created_at %>
+  <br/>
+  <strong>Fecha de modificacion:</strong>
+  <%= @list.updated_at %>
+  <br/>
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', "/" %>
+</p>
+<br/>
+<p>
+   <%= link_to 'Crear tarea simple' ,new_list_simple_list_tasks_path(@list) %>
+</p>
+<p>
+   <%= link_to 'Crear tarea temporal',new_list_temp_list_tasks_path(@list) %>
+</p>
+<p>
+   <%= link_to 'Crear tarea larga',new_list_long_list_tasks_path(@list) %>  
+</p>
+
+
+<%= render 'tasks/tasks', tasks: (@tasks) %>
+
+
+

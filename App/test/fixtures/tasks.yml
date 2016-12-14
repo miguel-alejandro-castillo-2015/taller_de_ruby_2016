@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  estado: MyString
+  prioridad: 9.99
+  fecha_inicio_validez: 2016-12-11
+  fecha_fin_validez_date: MyString
+  porcentaje_avance: 1
+  list: one
+  type: 
+
+two:
+  descripcion: MyString
+  estado: MyString
+  prioridad: 9.99
+  fecha_inicio_validez: 2016-12-11
+  fecha_fin_validez_date: MyString
+  porcentaje_avance: 1
+  list: two
+  type: 

@@ -1,0 +1,2 @@
+json.extract! task, :id, :descripcion, :estado, :prioridad, :fecha_inicio_validez, :fecha_fin_validez_date, :porcentaje_avance, :list_id, :type, :created_at, :updated_at
+json.url task_url(task, format: :json)
