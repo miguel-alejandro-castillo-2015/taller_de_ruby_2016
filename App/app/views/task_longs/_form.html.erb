@@ -1,0 +1,43 @@
+<%= form_for([@list,@task_long]) do |f| %>
+  <% if task_long.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task_long.errors.count, "error") %> prohibited this task_long from being saved:</h2>
+
+      <ul>
+      <% task_long.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :descripcion  %>:
+    <%= f.text_area :descripcion %>
+  </div>
+
+   <div class="field">
+    <%= f.label :estado %>
+    <%= select(:task_long,:estado,[["Pendiente","pendiente"],["Hecha","hecha"],["En curso","en curso"]]) %>
+
+  </div>
+  
+
+  <div class="field">
+    <%= f.label :prioridad %>
+    <%= select(:task_long,:prioridad,[["Alta",1],["Media","media",2],["Baja",3]]) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :porcentaje_avance %>
+    <%= f.number_field :porcentaje_avance %>
+  </div>
+
+  <div class="actions">
+   <%= f.hidden_field :list_id, :value =>@list.id%>
+   <%= f.hidden_field :type, :value =>"TaskLong"%>
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+

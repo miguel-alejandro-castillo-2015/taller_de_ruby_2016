@@ -1,5 +1,5 @@
-require_relative "task"
 class TaskLong < Task
-	 validates :fecha_inicio_validez, presence: true
-	 validates :fecha_fin_validez, presence: true
+	validates :estado, presence: true, inclusion: { in: [ "pendiente","hecha","en curso"],message: "%{value} is not a valid state"}
+	validates :porcentaje_avance, numericality: {only_integer: true,greater_than_or_equal_to: 0,less_than_or_equal_to: 100}
+	
 end

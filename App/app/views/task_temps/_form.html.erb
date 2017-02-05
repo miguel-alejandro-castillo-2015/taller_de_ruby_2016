@@ -1,10 +1,10 @@
-<%= form_for([@list,task]) do |f| %>
-  <% if task.errors.any? %>
+<%= form_for([@list,@task_temp]) do |f| %>
+  <% if task_temp.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <h2><%= pluralize(task_temp.errors.count, "error") %> prohibited this task_temp from being saved:</h2>
 
       <ul>
-      <% task.errors.full_messages.each do |message| %>
+      <% task_temp.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -18,15 +18,15 @@
 
   <div class="field">
     <%= f.label :estado %>
-    <%= select(:task,:estado,[["Pendiente","pendiente"],["Hecha","hecha"]]) %>
+    <%= select(:task_temp,:estado,[["Pendiente","pendiente"],["Hecha","hecha"]]) %>
 
   </div>
 
   <div class="field">
     <%= f.label :prioridad %>
-    <%= select(:task,:prioridad,[["Alta",1],["Media","media",2],["Baja",3]]) %>
+    <%= select(:task_temp,:prioridad,[["Alta",1],["Media","media",2],["Baja",3]]) %>
   </div>
- <!--
+ 
   <div class="field">
     <%= f.label :fecha_inicio_validez %>
     <%= f.date_select :fecha_inicio_validez %>
@@ -36,17 +36,12 @@
     <%= f.label :fecha_fin_validez %>
     <%= f.date_select :fecha_fin_validez %>
   </div>
- -->
-
-  <div class="field">
-    <%= f.label :porcentaje_avance %>
-    <%= f.number_field :porcentaje_avance %>
-  </div>
  
-  
 
   <div class="actions">
     <%= f.hidden_field :type, :value =>"TaskTemp"%>
+    <%= f.hidden_field :list_id, :value =>@list.id%>
     <%= f.submit %>
   </div>
 <% end %>
+

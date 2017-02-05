@@ -1,0 +1,1 @@
+json.partial! "task_temps/task_temp", task_temp: @task_temp

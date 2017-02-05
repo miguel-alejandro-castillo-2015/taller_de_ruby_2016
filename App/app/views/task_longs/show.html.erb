@@ -1,0 +1,26 @@
+
+<p id="notice"><%= notice %></p>
+ <h2>Tarea larga</h2>
+<p>
+  <strong>Descripcion:</strong>
+  <%= @task_long.descripcion %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @task_long.estado %>
+</p>
+
+<p>
+  <strong>Prioridad:</strong>
+  <%= @task_long.prioridad_to_s %>
+</p>
+
+
+<p>
+  <strong>Porcentaje avance:</strong>
+  <%= @task_long.porcentaje_avance %>
+</p>
+
+
+<%= link_to 'Back', list_path(@list) %>

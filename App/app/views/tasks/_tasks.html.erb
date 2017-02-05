@@ -1,13 +1,11 @@
-<h1>Tasks</h1>
-
+<%if !@tasks.empty? %>
+  <h2>Tareas</h2>
 <table>
   <thead>
     <tr>
       <th>Descripcion</th>
-      <th>Estado</th>
-      <th>Prioridad</th>
       <th>Type</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -15,13 +13,16 @@
     <% @tasks.each do |task| %>
       <tr>
         <td><%= task.descripcion %></td>
-        <td><%= task.estado %></td>
-        <td><%= task.prioridad %></td>
         <td><%= task.type %></td>
-        <td><%= link_to 'Show', list_task_path(@list,task) %></td>
-        <td><%= link_to 'Edit', edit_list_task_path(@list,task) %></td>
+        <td><%= link_to 'Show', [@list,task] %></td>
+        <td><%= link_to 'Edit' ,[:edit,@list,task] %></td>
         <td><%= link_to 'Destroy', list_task_path(@list,task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%else%>
+   <h2>
+     No hay tareas
+   </h2>
+<% end -%>

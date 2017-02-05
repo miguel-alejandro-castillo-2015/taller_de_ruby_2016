@@ -1,27 +1,25 @@
 <p id="notice"><%= notice %></p>
-
+<%= link_to 'Back', "/" %> | <%= link_to 'Edit', edit_list_path(@list) %>
 <p>
   <strong>Nombre:</strong>
   <%= @list.nombre %>
   <br/>
   <strong>Fecha de creacion:</strong>
-  <%= @list.created_at %>
+  <%= @list.created_at.strftime("%d/%m/%Y %H:%M:%S") %>
   <br/>
   <strong>Fecha de modificacion:</strong>
-  <%= @list.updated_at %>
+  <%= @list.updated_at.strftime("%d/%m/%Y %H:%M:%S") %>
   <br/>
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', "/" %>
+  <strong>Url:</strong>
+  <input type="text"   value="<%= list_path(@list) %>"  readonly="true" />
+  <br/>
+ 
 </p>
 <br/>
 <p>
-   <%= link_to 'Crear tarea simple' ,new_list_simple_list_tasks_path(@list) %>
-</p>
-<p>
-   <%= link_to 'Crear tarea temporal',new_list_temp_list_tasks_path(@list) %>
-</p>
-<p>
-   <%= link_to 'Crear tarea larga',new_list_long_list_tasks_path(@list) %>  
+   <%= link_to 'Crear tarea simple' ,new_list_task_path(@list) %>  |    <%= link_to 'Crear tarea temporal',new_list_task_temp_path(@list) %>
+     |   <%= link_to 'Crear tarea larga',new_list_task_long_path(@list) %>
+
 </p>
 
 

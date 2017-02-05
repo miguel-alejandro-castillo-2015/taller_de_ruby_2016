@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 20161211134856) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string  "descripcion",          limit: 255
-    t.string  "estado"
-    t.decimal "prioridad"
+    t.string  "descripcion",          limit: 255, null: false
+    t.string  "estado",                           null: false
+    t.integer "prioridad",                        null: false
     t.date    "fecha_inicio_validez"
     t.date    "fecha_fin_validez"
     t.integer "porcentaje_avance"
-    t.integer "list_id"
-    t.string  "type"
+    t.integer "list_id",                          null: false
+    t.string  "type",                             null: false
     t.index ["list_id"], name: "index_tasks_on_list_id"
   end
 

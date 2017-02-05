@@ -1,28 +1,20 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [  :show, :edit, :update, :destroy]
-
+  before_action :set_lists, only: [:index, :new]
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
   end
 
   # GET /lists/1
   # GET /lists/1.json
   def show
-    @tasks=@list.tasks.order(:prioridad)
+    @tasks=@list.tasks.where.not("estado = ?","expirada").order(:prioridad)
   end
 
   # GET /lists/new
   def new
     @list = List.new
-    if cookies[:list].blank?
-      @lists=[]
-    else
-       cookies[:list][0]=""
-       lasts=cookies[:list].split(',').last(5)
-       @lists=List.find(lasts)
-    end
 
   end
 
@@ -45,6 +37,7 @@ class ListsController < ApplicationController
         format.json { render :show, status: :created, location: @list }
       
       else
+        @lists=set_lists
         format.html { render :new }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
@@ -72,19 +65,28 @@ class ListsController < ApplicationController
     @list.destroy
     respond_to do |format|
       cookies[:list]=cookies[:list].gsub(",#{@list.id}","")
-      format.html { redirect_to lists_url, notice: 'List was successfully destroyed.' }
+      format.html { redirect_to "/", notice: 'List was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_lists 
+      if cookies[:list].blank?
+         @lists=[]
+      else
+        cookies[:list][0]=""
+        lasts=cookies[:list].split(',').last(5)
+        @lists=List.find(lasts)
+      end
+    end
     def set_list
       @list = List.find_by_url(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:nombre,:url)
+      params.require(:list).permit(:nombre)
     end
 end

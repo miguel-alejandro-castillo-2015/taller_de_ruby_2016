@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+ <h2>Tarea temporal</h2>
+<p>
+  <strong>Descripcion:</strong>
+  <%= @task_temp.descripcion %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @task_temp.estado %>
+</p>
+
+<p>
+  <strong>Prioridad:</strong>
+  <%= @task_temp.prioridad_to_s %>
+</p>
+
+<p>
+  <strong>Fecha inicio validez:</strong>
+  <%= @task_temp.fecha_inicio_validez.strftime("%d/%m/%Y")%>
+</p>
+
+<p>
+  <strong>Fecha fin validez:</strong>
+  <%= @task_temp.fecha_fin_validez.strftime("%d/%m/%Y") %>
+</p>
+
+<%= link_to 'Back', list_path(@list) %>
