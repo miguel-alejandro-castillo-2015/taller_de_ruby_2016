@@ -15,9 +15,7 @@ class TaskTempTest < ActiveSupport::TestCase
   	  assert task.save,"no se guardo la tarea temporal con datos validos"
    end
    
-   test "verificar si es correcto el ordenamiento" do
-
-    end
+  
     test "creando una tarea temporal con un rango de validez invertido" do
        list=List.new({nombre:"listado"})
        list.save

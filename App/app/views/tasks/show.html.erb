@@ -1,18 +1,4 @@
  <p id="notice"><%= notice %></p>
  <h2>Tarea simple</h2>
-<p>
-  <strong>Descripcion:</strong>
-  <%= @task.descripcion %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @task.estado %>
-</p>
-
-<p>
-  <strong>Prioridad:</strong>
-  <%= @task.prioridad_to_s %>
-</p>
-
+ <%= render 'task', task: @task %>
 <%= link_to 'Back', list_path(@list) %>

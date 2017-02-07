@@ -1,19 +1,6 @@
 <p id="notice"><%= notice %></p>
  <h2>Tarea temporal</h2>
-<p>
-  <strong>Descripcion:</strong>
-  <%= @task.descripcion %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @task.estado %>
-</p>
-
-<p>
-  <strong>Prioridad:</strong>
-  <%= @task.prioridad_to_s %>
-</p>
+<%= render 'tasks/task', task: @task %>
 
 <p>
   <strong>Fecha inicio validez:</strong>

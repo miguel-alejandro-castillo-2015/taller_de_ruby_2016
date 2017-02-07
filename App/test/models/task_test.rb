@@ -14,9 +14,5 @@ class TaskTest < ActiveSupport::TestCase
   	  assert task.save,"no se guardo una tarea con datos validos"
    end
    
-   test "verificar si es correcto el ordenamiento" do
-
-
-    end
-
+   
 end

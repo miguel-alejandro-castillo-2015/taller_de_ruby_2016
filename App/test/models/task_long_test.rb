@@ -14,10 +14,7 @@ class TaskLongTest < ActiveSupport::TestCase
   	  assert task.save,"no se guardo una tarea larga con datos validos"
    end
    
-   test "verificar si es correcto el ordenamiento" do
-
-
-    end
+  
     test "actualizacion de una tarea larga con porcentaje de avance dentro del rango permitido" do
        list=List.new({nombre:"listado"})
        list.save
