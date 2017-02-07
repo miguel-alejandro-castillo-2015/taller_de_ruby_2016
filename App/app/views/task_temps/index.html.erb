@@ -1,33 +1,3 @@
-
-
-<p id="notice"><%= notice %></p>
-
-<h1>Task Temps</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Fecha inicio validez</th>
-      <th>Fecha fin validez</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @task_temps.each do |task_temp| %>
-      <tr>
-        <td><%= task_temp.fecha_inicio_validez %></td>
-        <td><%= task_temp.fecha_fin_validez %></td>
-        <td><%= link_to 'Show', [@list,task_temp] %></td>
-        <td><%= link_to 'Edit', edit_list_task_temp_path(@list,task_temp) %></td>
-        <td><%= link_to 'Destroy', list_task_path(@list,task_temp), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= render 'tasks/tasks', tasks: @tasks %>
 <br>
-
-<%= link_to 'Back', @list %>
-
-
+<%= link_to 'Back',@list %>

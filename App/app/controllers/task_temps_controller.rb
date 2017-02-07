@@ -4,7 +4,7 @@ class TaskTempsController < ApplicationController
   # GET /task_temps
   # GET /task_temps.json
   def index
-    @task_temps = @list.tasks.where("type = ?","TaskTemp").where.not("estado = ?","expirada").order(:prioridad)
+    @tasks = @list.tasks.where("type = ?","TaskTemp").where.not("estado = ?","expirada").order(:prioridad)
   end
 
   # GET /task_temps/1
@@ -14,7 +14,7 @@ class TaskTempsController < ApplicationController
 
   # GET /task_temps/new
   def new
-    @task_temp = TaskTemp.new
+    @task = TaskTemp.new
   end
 
   # GET /task_temps/1/edit
@@ -24,14 +24,14 @@ class TaskTempsController < ApplicationController
   # POST /task_temps
   # POST /task_temps.json
   def create
-    @task_temp = TaskTemp.new(task_temp_params)
+    @task = TaskTemp.new(task_temp_params)
     respond_to do |format|
-      if @task_temp.save
+      if @task.save
         format.html { redirect_to @list, notice: 'Task temp was successfully created.' }
-        format.json { render :show, status: :created, location: @task_temp }
+        format.json { render :show, status: :created, location: @task}
       else
         format.html { render :new }
-        format.json { render json: @task_temp.errors, status: :unprocessable_entity }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -40,12 +40,12 @@ class TaskTempsController < ApplicationController
   # PATCH/PUT /task_temps/1.json
   def update
     respond_to do |format|
-      if @task_temp.update(task_temp_params)
-        format.html { redirect_to [@list,@task_temp], notice: 'Task temp was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task_temp }
+      if @task.update(task_temp_params)
+        format.html { redirect_to [@list,@task], notice: 'Task temp was successfully updated.' }
+        format.json { render :show, status: :ok, location: @task}
       else
         format.html { render :edit }
-        format.json { render json: @task_temp.errors, status: :unprocessable_entity }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -53,7 +53,7 @@ class TaskTempsController < ApplicationController
   # DELETE /task_temps/1
   # DELETE /task_temps/1.json
   def destroy
-    @task_temp.destroy
+    @task.destroy
     respond_to do |format|
       format.html { redirect_to task_temps_url, notice: 'Task temp was successfully destroyed.' }
       format.json { head :no_content }
@@ -63,7 +63,7 @@ class TaskTempsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task_temp
-      @task_temp = TaskTemp.find(params[:id])
+      @task = TaskTemp.find(params[:id])
     end
 
     def set_list

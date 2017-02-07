@@ -4,7 +4,7 @@ class TaskLongsController < ApplicationController
   # GET /task_longs
   # GET /task_longs.json
   def index
-    @task_longs = @list.tasks.where("type = ?","TaskLong").order(:prioridad)
+    @tasks = @list.tasks.where("type = ?","TaskLong").order(:prioridad)
   end
 
   # GET /task_longs/1
@@ -14,7 +14,7 @@ class TaskLongsController < ApplicationController
 
   # GET /task_longs/new
   def new
-    @task_long = TaskLong.new
+    @task = TaskLong.new
   end
 
   # GET /task_longs/1/edit
@@ -24,15 +24,15 @@ class TaskLongsController < ApplicationController
   # POST /task_longs
   # POST /task_longs.json
   def create
-    @task_long = TaskLong.new(task_long_params)
+    @task = TaskLong.new(task_long_params)
 
     respond_to do |format|
-      if @task_long.save
+      if @task.save
         format.html { redirect_to @list, notice: 'Task long was successfully created.' }
-        format.json { render :show, status: :created, location: @task_long }
+        format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
-        format.json { render json: @task_long.errors, status: :unprocessable_entity }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +41,12 @@ class TaskLongsController < ApplicationController
   # PATCH/PUT /task_longs/1.json
   def update
     respond_to do |format|
-      if @task_long.update(task_long_params)
-        format.html { redirect_to [@list,@task_long], notice: 'Task long was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task_long }
+      if @task.update(task_long_params)
+        format.html { redirect_to [@list,@task], notice: 'Task long was successfully updated.' }
+        format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
-        format.json { render json: @task_long.errors, status: :unprocessable_entity }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +54,7 @@ class TaskLongsController < ApplicationController
   # DELETE /task_longs/1
   # DELETE /task_longs/1.json
   def destroy
-    @task_long.destroy
+    @task.destroy
     respond_to do |format|
       format.html { redirect_to task_longs_url, notice: 'Task long was successfully destroyed.' }
       format.json { head :no_content }
@@ -64,7 +64,7 @@ class TaskLongsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task_long
-      @task_long = TaskLong.find(params[:id])
+      @task = TaskLong.find(params[:id])
     end
     def set_list
        @list=List.find_by_url(params[:list_id])
