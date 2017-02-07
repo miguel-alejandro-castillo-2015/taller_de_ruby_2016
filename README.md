@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1)tener instalado ruby 
+2)instalar rails con "gem install rails"
+3)posicionarse en la  carpeta raiz del proyecto y ejecutar "bundle install"
+4)ejecutar rails db:migrate
+5)ejecutar la aplicacion mediante el comando "rails s"
+6)ingresar en la url "http://localhost:3000/" para probar la aplicacion
+7)para parar la aplicacion,presionar control+c sobre la consola donde se ejecuto "rails s"
