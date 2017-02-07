@@ -1,5 +1,4 @@
 class TaskTemp < Task
-	 validates :estado, presence: true, inclusion: { in: [ "pendiente","hecha","expirada"],message: "%{value} is not a valid state"}
 	 validates :fecha_inicio_validez, presence: true
 	 validates :fecha_fin_validez, presence: true
 	 validate  :validate_fechas
@@ -13,7 +12,15 @@ class TaskTemp < Task
 	 private
 	 def validate_fechas
 		if(fecha_inicio_validez > fecha_fin_validez)
-           errors[:base] << "error de fechas"
+           errors[:base] << msg_error_fechas
 		end
 	 end
+	 def validate_estado
+	 	if(!["pendiente","hecha","expirada"].include?(estado) )
+          errors[:base] << msg_error_estado
+        end
+     end
+     def msg_error_fechas
+       "error de fechas"
+     end
 end

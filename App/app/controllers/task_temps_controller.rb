@@ -4,7 +4,7 @@ class TaskTempsController < ApplicationController
   # GET /task_temps
   # GET /task_temps.json
   def index
-    @task_temps = @list.tasks.where("type = ?","TaskTemp").order(:prioridad)
+    @task_temps = @list.tasks.where("type = ?","TaskTemp").where.not("estado = ?","expirada").order(:prioridad)
   end
 
   # GET /task_temps/1

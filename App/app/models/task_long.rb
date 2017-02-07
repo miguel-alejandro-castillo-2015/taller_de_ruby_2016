@@ -1,5 +1,9 @@
 class TaskLong < Task
-	validates :estado, presence: true, inclusion: { in: [ "pendiente","hecha","en curso"],message: "%{value} is not a valid state"}
 	validates :porcentaje_avance, numericality: {only_integer: true,greater_than_or_equal_to: 0,less_than_or_equal_to: 100}
-	
+	 private
+	 def validate_estado
+	 	if(!["pendiente","hecha","en curso"].include?(estado) )
+          errors[:base] << msg_error_estado
+        end
+     end
 end
