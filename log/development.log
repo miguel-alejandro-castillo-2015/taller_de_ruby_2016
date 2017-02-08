@@ -47096,3 +47096,48 @@ Processing by ListsController#show as HTML
 Completed 200 OK in 667ms (Views: 373.2ms | ActiveRecord: 4.4ms)
 
 
+Started GET "/lists/ddjdjd" for 127.0.0.1 at 2017-02-07 21:50:39 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"ddjdjd"}
+  [1m[36mList Load (1.0ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."url" = ? LIMIT ?[0m  [["url", "ddjdjd"], ["LIMIT", 1]]
+  Rendering lists/show.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."list_id" = ? AND (NOT (estado = 'expirada'))[0m  [["list_id", 5]]
+  Rendered tasks/_tasks.html.erb (15.1ms)
+  Rendered lists/show.html.erb within layouts/application (82.5ms)
+Completed 200 OK in 2809ms (Views: 2290.7ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/lists/ddjdjd" for 127.0.0.1 at 2017-02-07 21:52:10 -0300
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"ddjdjd"}
+  [1m[36mList Load (1.9ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."url" = ? LIMIT ?[0m  [["url", "ddjdjd"], ["LIMIT", 1]]
+  Rendering lists/show.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."list_id" = ? AND (NOT (estado = 'expirada'))[0m  [["list_id", 5]]
+  Rendered tasks/_tasks.html.erb (12.3ms)
+  Rendered lists/show.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 356ms (Views: 329.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/lists/ddjdjd" for 127.0.0.1 at 2017-02-07 21:52:49 -0300
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"ddjdjd"}
+  [1m[36mList Load (0.6ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."url" = ? LIMIT ?[0m  [["url", "ddjdjd"], ["LIMIT", 1]]
+  Rendering lists/show.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."list_id" = ? AND (NOT (estado = 'expirada'))[0m  [["list_id", 5]]
+  Rendered tasks/_tasks.html.erb (8.4ms)
+  Rendered lists/show.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 541ms (Views: 518.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/lists/ddjdjd" for 127.0.0.1 at 2017-02-07 21:53:00 -0300
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"ddjdjd"}
+  [1m[36mList Load (1.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."url" = ? LIMIT ?[0m  [["url", "ddjdjd"], ["LIMIT", 1]]
+  Rendering lists/show.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."list_id" = ? AND (NOT (estado = 'expirada'))[0m  [["list_id", 5]]
+  Rendered tasks/_tasks.html.erb (8.7ms)
+  Rendered lists/show.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 353ms (Views: 328.8ms | ActiveRecord: 2.2ms)
+
+
